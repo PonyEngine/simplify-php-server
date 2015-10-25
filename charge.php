@@ -86,5 +86,6 @@ if ("APPROVED".equals(payment.get("paymentStatus"))) {
 	}
 	$response["error"] = $e->getMessage();
 }
-echo json_encode($response);
+echo $response;
+//echo json_encode($response);
 ?>
