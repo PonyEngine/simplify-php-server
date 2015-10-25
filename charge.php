@@ -42,7 +42,7 @@ Simplify::$privateKey = getenv('SIMPLIFY_API_PRIVATE_KEY');
 }*/
 
 
-$payment = $_POST["amount"];
+$payment =  3000; //$_POST["amount"];
 $currency = isset($_POST["currency"]) ? $_POST["currency"] : 'USD';
 
 
