@@ -41,18 +41,27 @@ if (!isset($_POST["amount"]) || !isset($_POST['simplifyToken'])) {
 	return;
 }
 
-$token = $_POST['simplifyToken'];
+
 $payment = $_POST["amount"];
 $currency = isset($_POST["currency"]) ? $_POST["currency"] : 'USD';
 
-$paymentPayload = array(
-	'amount' => $payment,
-	'token' => $token,
-	'description' => 'Test payment',
-	'currency' => $currency
-);
+
 $response = array();
 try {
+
+// Retrieve the Customer ID from your Database
+    $customer = Simplify_Customer::findCustomer('46MGok5L');
+
+    $paymentPayload = array(
+        'amount' => $payment,
+        'customer' => $customer,
+        'description' => 'Test payment',
+        'currency' => $currency
+    );
+
+if ("APPROVED".equals(payment.get("paymentStatus"))) {
+    System.out.println("Customer Payment approved");
+}
 	$payment = Simplify_Payment::createPayment($paymentPayload);
 	if ($payment->paymentStatus == 'APPROVED') {
 		$response["id"] = $payment->{'id'};
