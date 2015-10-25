@@ -69,6 +69,7 @@ if ("APPROVED".equals(payment.get("paymentStatus"))) {
 	$response["status"] = $payment->paymentStatus;
 } catch (Exception $e) {
 	//error handling
+
 	if ($e instanceof Simplify_ApiException) {
 		$response["reference"] = $e->getReference();
 		$response["message"] = $e->getMessage();
@@ -76,6 +77,9 @@ if ("APPROVED".equals(payment.get("paymentStatus"))) {
 	}
 	if ($e instanceof Simplify_BadRequestException && $e->hasFieldErrors()) {
 		$fieldErrors = '';
+
+
+
 		foreach ($e->getFieldErrors() as $fieldError) {
 			$fieldErrors = $fieldErrors . $fieldError->getFieldName()
 				. ": '" . $fieldError->getMessage()
