@@ -36,6 +36,10 @@ Simplify::$publicKey = getenv('SIMPLIFY_API_PUBLIC_KEY');
 Simplify::$privateKey = getenv('SIMPLIFY_API_PRIVATE_KEY');
 
 
+
+
+
+
 /*if (!isset($_POST["amount"]) || !isset($_POST['simplifyToken'])) {
 	echo "Please submit POST values with amount & simplifyToken params!";
 	return;
