@@ -73,6 +73,9 @@ if ("APPROVED".equals(payment.get("paymentStatus"))) {
 	if ($e instanceof Simplify_ApiException) {
 		$response["reference"] = $e->getReference();
 		$response["message"] = $e->getMessage();
+
+
+
 		$response["errorCode"] = $e->getErrorCode();
 	}
 	if ($e instanceof Simplify_BadRequestException && $e->hasFieldErrors()) {
