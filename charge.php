@@ -36,17 +36,8 @@ Simplify::$publicKey = getenv('SIMPLIFY_API_PUBLIC_KEY');
 Simplify::$privateKey = getenv('SIMPLIFY_API_PRIVATE_KEY');
 
 
-
-
-
-
-/*if (!isset($_POST["amount"]) || !isset($_POST['simplifyToken'])) {
-	echo "Please submit POST values with amount & simplifyToken params!";
-	return;
-}*/
-
-
 $payment =  3000; //$_POST["amount"];
+$paymentStatus = '';
 $currency = isset($_POST["currency"]) ? $_POST["currency"] : 'USD';
 
 
@@ -63,9 +54,7 @@ try {
         'currency' => $currency
     );
 
-if ("APPROVED".equals(payment.get("paymentStatus"))) {
-    System.out.println("Customer Payment approved");
-}
+
 	$payment = Simplify_Payment::createPayment($paymentPayload);
 	if ($payment->paymentStatus == 'APPROVED') {
 		$response["id"] = $payment->{'id'};
