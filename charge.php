@@ -46,6 +46,7 @@ try {
 
 // Retrieve the Customer ID from your Database
     $customer = Simplify_Customer::findCustomer('46MGok5L');
+    echo $customer;
 
     $paymentPayload = array(
         'amount' => $payment,
